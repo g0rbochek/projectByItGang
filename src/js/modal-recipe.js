@@ -16,7 +16,7 @@ return response.data
 // refs.btnTest.addEventListener('click', onSeeRecipeBtnClick)
 export function onSeeRecipeBtnClick(event) {
   if (event.target.nodeName !== "BUTTON") { return }
-  
+  console.log(event.target.id)
   refs.modalReceiptBackdrop.classList.remove('is-hidden')
   window.addEventListener('keydown', onEscKeyPress)
   function onEscKeyPress(event) {
@@ -152,12 +152,15 @@ export function onSeeRecipeBtnClick(event) {
     
       // Додавання до локального сховища
       const addToFavBtn = document.querySelector('.modal-receipt-add-to-favorite-btn')
-           
+      let arrFavouritesRecipes = [];   
       addToFavBtn.addEventListener('click', onAddToFavBtnClick);
       function onAddToFavBtnClick() {
-        return localStorage.setItem("favourite-item", JSON.stringify(data))
+        arrFavouritesRecipes.push(data)
+        return localStorage.setItem("favouriteRecipesArray", JSON.stringify(arrFavouritesRecipes))
       }
     })
 }
 
 export {createModalReceiptMarkup}
+export { arrFavouritesRecipes }
+export {onAddToFavBtnClick}
