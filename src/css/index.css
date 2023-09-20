@@ -8,7 +8,7 @@
 @import './fonts.css';
 
 /* стилі секцій */
-@import '../sass/header.scss';
+@import './header.css';
 @import './main-hero.css';
 @import './main-section.css';
 
